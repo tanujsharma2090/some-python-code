@@ -1,20 +1,23 @@
 """
-1. It is creating a 2x2 matrix F. 
-2. It is raising the matrix to the (n-1)th power. 
-3. It is returning the element at row 0 and column 0 of the resultant matrix. 
+1. Sort the words by length
+2. Iterate over the words
+3. For each word, check if it is a substring of any other word
+4. If it is, add it to the output list
+5. Return the set of all the words that are substrings of other words
 
 """
-def fib(n):
-    F = [[1, 1], [1, 0]]
-    if (n == 0):
-        return 0
-    else:
-        power(F, n - 1)
-
-    a = F[0][0]
-    b = str(a)
-    print(len(b))
-    return F[0][0]
+def fib(self, words):
+    words.sort(key = len) 
+    print(words)
+    
+    out = []
+    
+    for i in range(0, len(words)):
+        for j in range(i+1, len(words)):
+            if words[i] in words[j]:
+                out.append(words[i])
+    
+    return set(out)
 
 
 """
