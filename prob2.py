@@ -1,3 +1,9 @@
+"""
+1. It is creating a 2x2 matrix F. 
+2. It is raising the matrix to the (n-1)th power. 
+3. It is returning the element at row 0 and column 0 of the resultant matrix. 
+
+"""
 def fib(n):
     F = [[1, 1], [1, 0]]
     if (n == 0):
@@ -11,6 +17,14 @@ def fib(n):
     return F[0][0]
 
 
+"""
+1. It is multiplying the matrix F with itself. 
+2. It is storing the result in the same matrix F. 
+3. It is doing this in O(1) space. 
+4. It is doing this in O(log n) time. 
+5. It is doing this by using the fact that F^n = F^(n/2) * F^(n/2) if n is even. 
+
+"""
 def multiply(F, M):
 
     x = (F[0][0] * M[0][0] + F[0][1] * M[1][0])
@@ -24,6 +38,13 @@ def multiply(F, M):
     F[1][1] = w
 
 
+"""
+1. The function is taking the nth fibonacci number as input. 
+2. It is creating a matrix M = [[1, 1], [1, 0]]
+3. It is multiplying the matrix M with itself n-1 times. 
+4. It is returning the first element of the matrix M. 
+
+"""
 def power(F, n):
 
     M = [[1, 1], [1, 0]]
