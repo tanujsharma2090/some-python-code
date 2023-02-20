@@ -1,17 +1,31 @@
-import numpy as np
-import scipy as sp
-import matplotlib.pyplot as plt
-x = sp.Poisson.random(lam=1, size=100)
-# plt.plot(x,'o')
-a = 5.  # shape
-n = 1000
-s = np.random.power(a, n)
-count, bins, ignored = plt.hist(s, bins=30)
-x = np.linspace(0, 1, 100)
-y = a*x**(a-1.)
-normed_y = n*np.diff(bins)[0]*y
-plt.title("Poisson distribution")
-plt.ylabel("y")
-plt.xlabel("x")
-plt.plot(x, normed_y)
-plt.show()
+def grid_search(model, param_grid, ens=False):
+    grid_search = GridSearchCV(model, param_grid, cv=kfold, scoring='neg_mean_squared_error', n_jobs=4)
+    grid_search.fit(X, y_log)
+    bestestimator = grid_search.best_estimator_ 
+    bestscore= np.sqrt(-grid_search.best_score_) 
+    bestparams= grid_search.best_params_
+    if not ens:
+        return bestestimator, bestscore
+    else:
+        return bestparams, bestscore
+
+
+def cv_rmse(model):
+    scores_rmse = np.sqrt(-cross_val_score(model, X, y_log, scoring="neg_mean_squared_error", cv=kfold, n_jobs=4))
+    mean_rmse = scores_rmse.mean()
+    std_rmse = scores_rmse.std()
+    return mean_rmse, std_rmse
+
+
+def isSubsequence(self, s: str, t: str) -> bool:
+    if len(s)==0:
+        return True
+    if len(t)<len(s):
+        return False
+    index = 0
+    for each_char in t:
+        if each_char == s[index]:
+            index+=1
+            if index==len(s):
+                return True
+    return False

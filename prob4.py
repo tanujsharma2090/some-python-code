@@ -1,13 +1,11 @@
 """
-1. If the root is null, return False. 
-2. Subtract the value of the root from the sum. 
-3. If the root has no children, return True if the sum is 0. 
-4. If the root has children, return True if the left or right subtree has a path sum. 
+1. We are iterating through the string from left to right and keeping track of the number of open and close brackets. 
+2. If the number of open and close brackets are equal, we update the answer with the maximum of the current answer and the number of open and close brackets. 
+3. If the number of close brackets is greater than the number of open brackets, we reset the number of open and close brackets to 0. 
+4. We do the same thing from right to left. 
+5. We return the maximum of the two answers. 
 """
 def hasPathSum(self, s: str) -> int:
-    open_=0
-    close=0
-    ans1=0
     for i in s:
         if i=='(':
             open_+=1
