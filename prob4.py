@@ -7,6 +7,7 @@
 """
 def hasPathSum(self, s: str) -> int:
     for i in s:
+        var = 11
         if i=='(':
             open_+=1
         else:

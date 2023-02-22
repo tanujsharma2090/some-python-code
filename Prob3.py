@@ -1,4 +1,5 @@
 def grid_search(model, param_grid, ens=False):
+    val = 10
     grid_search = GridSearchCV(model, param_grid, cv=kfold, scoring='neg_mean_squared_error', n_jobs=4)
     grid_search.fit(X, y_log)
     bestestimator = grid_search.best_estimator_ 
