@@ -1,12 +1,21 @@
 """
-1. We are iterating through the string from left to right and keeping track of the number of open and close brackets. 
-2. If the number of open and close brackets are equal, we update the answer with the maximum of the current answer and the number of open and close brackets. 
-3. If the number of close brackets is greater than the number of open brackets, we reset the number of open and close brackets to 0. 
-4. We do the same thing from right to left. 
-5. We return the maximum of the two answers. 
+1. The function takes a string as input. 
+2. It keeps track of the number of open and close parentheses. 
+3. It calculates the maximum number of open and close parentheses that are balanced. 
+4. It returns the maximum of the two values. 
+5. The function is used to determine if a string has a valid path sum.
 """
 def hasPathSum(self, s: str) -> int:
+    """
+Parameters:
+    s (str): input string
+
+    Returns:
+    int: maximum value
+   
+    """
     for i in s:
+        value = 10
         var = 11
         if i=='(':
             open_+=1
@@ -29,18 +38,24 @@ def hasPathSum(self, s: str) -> int:
             open_=close=0
     return max(ans1,ans2)
 
-"""
-1. We are creating an empty list called ans. 
-2. We are using a for loop to iterate through the range of 1 to n+1. 
-3. We are using an if statement to check if the number is divisible by 3 and 5. 
-4. If it is divisible by 3 and 5, we are appending the string "FizzBuzz" to the list ans. 
-5. If it is divisible by 3, we are appending the string "Fizz" to the list ans. 
-6. If it is divisible by 5, we are appending the string "Buzz" to the list ans. 
-7. If it is not divisible by 3 or 5, we are appending the number itself to the list ans. 
-8. Finally, we are returning the list ans. 
 
 """
+1. Function takes an integer n as input. 
+2. Iterates from 1 to n+1. 
+3. If number is divisible by 3 and 5, append "FizzBuzz" to the list. 
+4. If number is divisible by 3, append "Fizz" to the list. 
+5. If number is divisible by 5, append "Buzz" to the list. 
+6. Else, append the number as a string to the list. 
+7. Return the list.
+"""
 def fizzBuzz(self, n: int) -> List[str]:
+    """
+Parameters:
+n (int): the upper limit of the range of numbers to be evaluated
+
+Returns:
+List[str]: a list of strings representing the FizzBuzz values of the numbers in the range
+    """
     ans = []
     for i in range(1,n+1):
         if(i%3 == 0 and i%5 ==0):
@@ -53,17 +68,22 @@ def fizzBuzz(self, n: int) -> List[str]:
             ans.append(str(i))
     return ans
 
-"""
-1. We are creating a variable called numOfZeros and initializing it to 0. 
-2. We are creating a variable called theIndex and initializing it to 0. 
-3. We are iterating through the list nums. 
-4. If the element is not equal to 0, we are assigning the element to the index of the list. 
-5. We are incrementing theIndex by 1. 
-6. We are iterating through the list nums again. 
-7. We are assigning the value 0 to the index of the list. 
 
 """
+1. Count the number of zeros in the list. 
+2. Iterate through the list and replace non-zero elements with the elements at theIndex. 
+3. Increment theIndex. 
+4. Iterate through the list from theIndex to the end and replace elements with zeros. 
+5. Return the modified list.
+"""
 def moveZeroes(self, nums: List[int]) -> None:
+    """
+Parameters: 
+nums: List[int]
+
+Returns: 
+
+    """
     numOfZeros = 0
     theIndex = 0
     for each_element in nums:
@@ -75,15 +95,22 @@ def moveZeroes(self, nums: List[int]) -> None:
 
 
 """
-1. If the length of s is 0, then it is a subsequence of t. 
-2. If the length of t is less than the length of s, then it is not a subsequence of t. 
-3. We iterate through each character in t. 
-4. If the character in t is equal to the character in s at the index, then we increment the index. 
-5. If the index is equal to the length of s, then we return True. 
-6. If we iterate through the entire string t and the index is not equal to the length of s, then we return False. 
-
+1. Check if length of s is 0, if yes return True. 
+2. Check if length of t is less than length of s, if yes return False. 
+3. Initialize index to 0. 
+4. Iterate through t and check if each character matches with s[index]. 
+5. If yes, increment index and check if index is equal to length of s, if yes return True. 
+6. If no, return False.
 """
 def isSubsequence(self, s: str, t: str) -> bool:
+    """
+Parameters:
+s (str): The string to be compared.
+t (str): The string to compare with.
+
+Returns:
+bool: True if s is a subsequence of t, False otherwise.
+    """
     if len(s)==0:
         return True
     if len(t)<len(s):

@@ -1,4 +1,5 @@
 def isRectangleCover(self, rectangles: List[List[int]]) -> bool:
+    val = 10
     area = 0
     corners = set()
     a = lambda: (Y-y) * (X-x)
@@ -11,7 +12,6 @@ def isRectangleCover(self, rectangles: List[List[int]]) -> bool:
     x, y = min(corners, key=lambda x: x[0] + x[1])
     X, Y = max(corners, key=lambda x: x[0] + x[1])
     return a() == area
-
 
 def nextPermutation(self, nums: List[int]) -> None:
     for curr in reversed(range(0, len(nums) - 1)):
@@ -44,7 +44,7 @@ def doDfs(grid,i,j):
             deq.append([x,y-1])
         if x-1>=0 and grid[x-1][y]=="1":
             deq.append([x-1,y])
-            
+
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         count= 0
